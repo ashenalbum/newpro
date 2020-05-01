@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="js/layui/css/layui.css" >
+    <link rel="stylesheet" href="css/swiper.min.css" >
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+<div id="header" class="df ai-c just-c-bet shadow">
+    <img src="img/common/head.png" class="icon" alt="">
+    <ul class="nav-pills df ai-c fs_18">
+        <li role="presentation" class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle">
+                <span>English(EN)</span>
+                <span class="caret"></span>
+            </a>
+            <ul class="change-lang dropdown-menu">
+                <li><a class="item" data-id="en" href="javascript:;">English(EN)</a></li>
+                <li><a class="item" data-id="cn" href="javascript:;">简体中文(CN)</a></li>
+            </ul>
+        </li>
+        <li role="presentation"><a href="index.html">Home</a></li>
+        <li role="presentation"><a href="list.html">Listing view</a></li>
+        <li class="active" role="presentation"><a href="formpage.html">Housing release</a></li>
+        <li role="presentation"><a href="service.html">Service</a></li>
+        <li role="presentation"><a href="contactus.html">Contact us</a></li>
+        <li role="presentation" class="showlogin"><a class="menu-login" href="javascript:;">Login/registe</a></li>
+        <li role="presentation" class="userinfo"><a href="javascript:;"></a></li>
+    </ul>
+</div>
+<div class="main form-main">
+    <div class="top-bg df ai-c just-c-ct">
+        <img src="img/form/top.png" class="img" alt="" />
+        <span class="fs_48 c_33">Housing Release</span>
+    </div>
+    <div class="cont mt_50 c_33">
+        <form id="form" class="layui-form">
+            <div class="fs_24 b">Personal details</div>
+            <div class="mt_30">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">Name：</label>
+                    <div class="layui-input-block">
+                        <input name="contacts_name" type="text" placeholder="Please enter" class="layui-input" >
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">TEL：</label>
+                    <div class="layui-input-block">
+                        <input name="contacts_tel" type="text" placeholder="Please enter" class="layui-input" >
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">E-mail：</label>            
+                    <div class="layui-input-block">
+                        <input name="contacts_mail" type="text" placeholder="Please enter" class="layui-input" >
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">Facebook：</label>
+                    <div class="layui-input-block">
+                        <input name="contacts_facebook" type="text" placeholder="Please enter" class="layui-input" >
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">WhatsApp：</label>
+                    <div class="layui-input-block">
+                        <input name="contacts_whats_app" type="text" placeholder="Please enter" class="layui-input" >
+                    </div>
+                </div>
+            </div>
+            <div class="fs_24 b mt_60">Housing Release</div>
+            <div class="mt_30">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">Check in time：</label>
+                    <div class="layui-input-block">
+                        <input name="settled_time" type="text" readonly placeholder="Please enter" class="date-input layui-input" >
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">Lease cycle：</label>
+                    <div class="layui-input-block">
+                        <select name="de_rent_cycle">
+                            <option value="">Please enter</option>
+                            <option value="1">日</option>
+                            <option value="2">月</option>
+                            <option value="3">年</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">Price：</label>
+                    <div class="layui-input-block">
+                       <input name="de_money_interval" type="number" placeholder="Please enter" class="layui-input" >
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">Address：</label>
+                    <div class="layui-input-block">
+                       <input name="de_address" type="text" placeholder="Please enter" class="layui-input" >
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">Other：</label>
+                    <div class="layui-input-block">
+                        <input name="de_remarks" type="text" placeholder="Please enter" class="layui-input" >
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block mt_40">
+                        <button class="layui-btn layui-btn-radius">Release</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/layui/layui.all.js"></script>
+<script src="js/main.js"></script>
+
+
+<script>
+$(function(){
+    // 选择日期
+    layui.laydate.render({elem: '.date-input'});
+
+    $("#form").submit(submit);
+})
+
+function submit(){
+    var token = localStorage.getItem("token");
+    if(!token){layer.msg("请先登录"); return false;}
+    
+    var ts = $(this);
+    var datas = ts.serializeArray();
+    var obj = {};
+    for(var i in datas){
+        obj[datas[i].name] = datas[i].value;
+    }
+
+    var testarr = [
+        {b:obj.contacts_name, t:"请输入姓名"},
+        {b:obj.contacts_tel, t:"请输入电话"},
+        {b:obj.contacts_mail, t:"请输入邮箱"},
+        {b:/^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/.test(obj.contacts_mail), t:"邮箱格式不正确"},
+        {b:obj.contacts_facebook, t:"请输入Facebook"},
+        {b:obj.contacts_whats_app, t:"请输入WhatsApp"},
+        {b:obj.settled_time, t:"请选择入驻时间"},
+        {b:obj.de_rent_cycle, t:"请选择租赁周期"},
+        {b:obj.de_money_interval, t:"请输入预期价位"},
+        {b:obj.de_address, t:"请输入租房位置"}
+    ];
+
+    for(var test in testarr){
+        if(!testarr[test].b){
+            layer.msg(testarr[test].t); return false;
+        }
+    }
+
+    $.ajax({
+        type: "post",
+        url: baseurl + "/api/House/releaseDemand",
+        data: obj,
+        dataType: "json",
+        headers:{'token': token},
+        success: function(data){
+            if(data.code!==0){layer.msg(data.msg); return}
+            layer.msg("提交成功");
+        }
+    });
+
+    return false;
+}
+</script>
+</body>
+</html>

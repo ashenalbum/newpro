@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="js/layui/css/layui.css" >
+    <link rel="stylesheet" href="css/swiper.min.css" >
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+<div id="header" class="df ai-c just-c-bet shadow">
+    <img src="img/common/head.png" class="icon" alt="">
+    <ul class="nav-pills df ai-c fs_18">
+        <li role="presentation" class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle">
+                <span>English(EN)</span>
+                <span class="caret"></span>
+            </a>
+            <ul class="change-lang dropdown-menu">
+                <li><a class="item" data-id="en" href="javascript:;">English(EN)</a></li>
+                <li><a class="item" data-id="cn" href="javascript:;">简体中文(CN)</a></li>
+            </ul>
+        </li>
+        <li class="active" role="presentation"><a href="index.html">Home</a></li>
+        <li role="presentation"><a href="list.html">Listing view</a></li>
+        <li role="presentation"><a href="formpage.html">Housing release</a></li>
+        <li role="presentation"><a href="service.html">Service</a></li>
+        <li role="presentation"><a href="contactus.html">Contact us</a></li>
+        <li role="presentation" class="showlogin"><a class="menu-login" href="javascript:;">Login/registe</a></li>
+        <li role="presentation" class="userinfo"><a href="javascript:;"></a></li>
+    </ul>
+</div>
+<div class="main">
+    <div id="banner">
+        <img src="img/home/home_img_banner.png" alt="" class="img" />
+    </div>
+    <div class="block-1">
+        <div class="cont df ai-c just-c-bet">
+            <div class="txt">
+                <div class="c_33 fs_70">Project Introduction</div>
+                <div class="mt_30 c_66 fs_18">All listing information is obtained by the overseas branch company through field visits to ensure that what you "see" is "rented".</div>
+            </div>
+            <img src="img/home/home_img_layout1.png" alt="" />
+        </div>
+    </div>
+    <div class="block-2">
+        <div class="cont df ai-c just-c-bet">
+            <img src="img/home/home_img_layout2.png" alt="" />
+            <div class="txt">
+                <div class="c_33 fs_70">Service Group</div>
+                <div class="mt_30 c_66 fs_18">All listing information is obtained by the overseas branch company through field visits to ensure that what you "see" is "rented".</div>
+            </div>
+        </div>
+    </div>
+    <div class="block-1">
+        <div class="cont df ai-c just-c-bet">
+            <div class="txt">
+                <div class="c_33 fs_70">Service Resource</div>
+                <div class="mt_30 c_66 fs_18">All listing information is obtained by the overseas branch company through field visits to ensure that what you "see" is "rented".</div>
+            </div>
+            <img src="img/home/home_img_layout3.png" alt="" />
+        </div>
+    </div>
+    <div class="block-3 df df-c ai-c just-c-ct">
+        <img src="img/home/home_img_layout4.png" class="bg-img" alt="" />
+        <div class="cont df ai-c just-c-bet c_ff fs_18">
+
+            <div class="carousel slide swiper-container">
+                <div id="msgls" class="carousel-inner swiper-wrapper">
+                    <!-- <div class="item swiper-slide">
+                        <div class="fs_36">Sam Boone</div>
+                        <div class="mt_20 lh_36 fore-hide">A consultant teacher called me directly to help me recommend listings. The whole process still feels quite reliable, mainly because I found a good house! I hope that other friends who are looking for a house can find a good house as soon as possible!</div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="controls df df-c just-c-bet">
+                <img src="img/common/left.png" alt="" class="bt prev-btn cur_point" />
+                <img src="img/common/right.png" alt="" class="bt next-btn cur_point" />
+            </div>
+        </div>
+        <button type="button" class="button open-message">Message</button>
+    </div>
+</div>
+<div id="footer">
+    <div class="cont df just-c-bet c_66 fs_16">
+        <div class="txt">
+            <img src="img/common/head.png" class="icon" alt="" />
+            <div class="mt_10 lh_36 c_66 fs_14">We are a global large-scale cross-border real estate that uses the Internet as a carrier, is driven by big data, is supported by global offline branches and stores, and is supported by real estate as the parent industry. Trading and service platform.</div>
+        </div>
+        <!-- 跳转链接 -->
+        <ul>
+            <li class="b c_33 fs_20">About Us</li>
+            <li class="mt_20"><a href="list.html">Listing view</a></li>
+            <li class="mt_20"><a href="formpage.html">Housing release</a></li>
+            <li class="mt_20"><a href="service.html">Service</a></li>
+        </ul>
+        <ul>
+            <li class="b c_33 fs_20">Contact Us</li>
+            <li class="mt_20">Phone：(123) 456 7890</li>
+            <li class="mt_20">Fax：(123) 456 7899</li>
+            <li class="mt_20">Email：Rent@gmail.com</li>
+        </ul>
+    </div>
+</div>
+
+<form id="message" class="message" style="display:none;">
+    <div class="title df ai-c just-c-ct fs_20 c_ff">
+        <span>Message</span>
+        <span class="cls fs_36 cur_point cls-layer">&times;</span>
+    </div>
+    <textarea placeholder="Please enter" class="input c_33 fs_16"></textarea>
+    <div class="btn-box">
+        <button type="submit" class="com-btn">sand</button>
+    </div>
+</form>
+
+<!-- 客服 -->
+<!-- <div id="chat" class="live-chat df df-c just-c-ct hide-box">
+    <img src="img/common/chat.png" alt="" class="bg" />
+    <div class="df ai-c just-c-bet fs_12 c_ff">
+        <span>What can I do for you?</span>
+        <span class="c_ff fs_14 cur_point click-hide">&times;</span>
+    </div>
+    <button type="button" class="open-service mt_10 c_style button fs_12">Live chat</button>
+</div>
+<div id="service" class="service shadow df df-c" style="display:none;">
+    <div class="tit df ai-c just-c-bet fs_20 c_ff">
+        <span class="move f1">Connecting…</span>
+        <span class="fs_24 cur_point cls-layer">&times;</span>
+    </div>
+    <div class="dialog f1 fs_14 c_33">
+        <div class="other">
+            <img src="img/common/kefu.png" alt="" />
+            <div class="txt-box">
+                <div class="title c_66 one-hide">Live chat</div>
+                <div class="txt">what do you need help with？</div>
+            </div>
+        </div>
+        <div class="me">
+            <img src="img/common/yonghu.png" alt="" />
+            <div class="txt-box">
+                <div class="title c_66 one-hide">Live chat</div>
+                <div class="txt">what do you need help with？</div>
+            </div>
+        </div>
+    </div>
+    <div class="iptmsg">
+        <textarea placeholder="Please enter"></textarea>
+        <button class="button com-btn">sand</button>
+    </div>
+</div> -->
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/layui/layui.all.js"></script>
+<script src="js/main.js"></script>
+
+<script src="js/swiper.min.js"></script>
+<script>
+var swiper = null;
+var msgLayerIndex = null;
+
+$(function(){
+    init();
+    getMsg();
+});
+
+function getMsg(){
+    var list = $("#msgls");
+    list.empty();
+    $.ajax({
+        type: "post",
+        url: baseurl + "/api/Msg/getTopMsg",
+        dataType: "json",
+        success: function(data){
+            if(data.code!==0){return false}
+            var msgs = data.data;
+            for(var i in msgs){
+                var item = msgs[i];
+                list.append('<div class="item swiper-slide">'+
+                    '<div class="fs_36">'+item.email+'</div>'+
+                    '<div class="mt_20 lh_36 fore-hide">'+item.msg_content+'</div>'+
+                '</div>');
+            }
+            swiper.update();
+        }
+    })
+}
+
+function init(){
+    // 底部轮播
+    swiper = new Swiper('.swiper-container',{
+        loop: true,
+        navigation: {
+            nextEl: '.next-btn',
+            prevEl: '.prev-btn',
+        },
+    });
+    // 留言
+    $(".open-message").click(function(){
+        if(!localStorage.getItem("token")){layer.msg("请先登录");return}
+        msgLayerIndex = layer.open({
+            type: 1,
+            title: false,
+            closeBtn: 0,
+            area: '640px',
+            shadeClose: true,
+            content: $("#message")
+        });
+    });
+    // 提交留言
+    $("#message").submit(function(){
+        var ts = $(this);
+        var msg = ts.find(".input").val();
+        var token = localStorage.getItem("token");
+
+        if(!msg){layer.msg("请输入留言");return false;}
+        $.ajax({
+            type: "post",
+            url: baseurl + "/api/Msg/releaseMsg",
+            headers:{'token': token},
+            data: { msg_content: msg },
+            dataType: "json",
+            success: function(data){
+                if(data.code!==0){layer.msg(data.msg); return false;}
+                layer.close(msgLayerIndex);
+                layer.msg("留言成功");
+                getMsg();
+            }
+        })
+        return false;
+    })
+}
+
+</script>
+</body>
+</html>

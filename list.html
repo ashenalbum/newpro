@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="js/layui/css/layui.css" >
+    <link rel="stylesheet" href="css/swiper.min.css" >
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+<div id="header" class="df ai-c just-c-bet shadow">
+    <img src="img/common/head.png" class="icon" alt="">
+    <ul class="nav-pills df ai-c fs_18">
+        <li role="presentation" class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle">
+                <span>English(EN)</span>
+                <span class="caret"></span>
+            </a>
+            <ul class="change-lang dropdown-menu">
+                <li><a class="item" data-id="en" href="javascript:;">English(EN)</a></li>
+                <li><a class="item" data-id="cn" href="javascript:;">简体中文(CN)</a></li>
+            </ul>
+        </li>
+        <li role="presentation"><a href="index.html">Home</a></li>
+        <li class="active" role="presentation"><a href="list.html">Listing view</a></li>
+        <li role="presentation"><a href="formpage.html">Housing release</a></li>
+        <li role="presentation"><a href="service.html">Service</a></li>
+        <li role="presentation"><a href="contactus.html">Contact us</a></li>
+        <li role="presentation" class="showlogin"><a class="menu-login" href="javascript:;">Login/registe</a></li>
+        <li role="presentation" class="userinfo"><a href="javascript:;"></a></li>
+    </ul>
+</div>
+<div class="main">
+    <div class="cont mt_30">
+        <form id="search_form" class="search df layui-form">
+            <select id="sel_rent_cycle" lay-filter="sel_rent_cycle">
+                <option value="">租赁周期</option>
+                <option value="1">日</option>
+                <option value="2">月</option>
+                <option value="3">年</option>
+            </select>
+            <select id="sel_money" lay-filter="sel_money">
+                <option value="">预期价位</option>
+                <option value="0-999">0-999</option>
+                <option value="1000-2000">1000-2000</option>
+            </select>
+            <select id="sel_status" lay-filter="sel_status">
+                <option value="">状态</option>
+                <option value="1">空置</option>
+                <option value="2">已出租</option>
+            </select>
+            <button type="submit" class="layui-btn btn-color">查询</button>
+            <button type="reset" class="layui-btn layui-btn-primary reset" >清空</button>
+        </form>
+        <ul id="list" class="list mt_20 df df-r df-w-w c_33 fs_18">
+            <!-- <li class="item">
+                <a href="./details.html">
+                    <img src="img/home/home_img_layout3.png" alt="" />
+                    <div class="mt_20 one-hide">98 MacDougal St</div>
+                    <div class="mt_10 one-hide c_66">$ <span class="c_style fs_26">4000</span>/month</div>
+                </a>
+            </li> -->
+        </ul>
+        <div id="page" class="df just-c-ct">
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/layui/layui.all.js"></script>
+<script src="js/main.js"></script>
+
+
+<script>
+var search = {
+    page: 1,
+    rent_cycle: "",
+    money: "",
+    status: ""
+}
+
+$(function(){
+    getData();
+    searchChange();
+})
+
+function getData(){
+    var list = $("#list");
+    list.empty();
+
+    $.ajax({
+        type: "post",
+        url: baseurl + "/api/House/getHouseList",
+        data: search,
+        dataType: "json",
+        success: function(data){
+            if(data.code!==0){layer.msg(data.msg); return}
+            var count = data.data.count || 0;
+            layui.laypage.render({
+                elem: 'page',
+                count: count,
+                limit: 6,
+                curr: search.page,
+                jump: function(obj, first){
+                    search.page = obj.curr;
+                    if(!first){getData()}
+                }
+            });
+            if(data.data.list){
+                for(var i in data.data.list){
+                    var item = data.data.list[i];
+                    list.append('<li class="item">'+
+                        '<a href="./details.html?id='+ item.id +'">'+
+                            '<img src="'+ item.image +'" alt="" />'+
+                            '<div class="mt_20 one-hide">'+ item.name +'</div>'+
+                            '<div class="mt_10 one-hide c_66">'+ item.money_unit +' <span class="c_style fs_26">'+ item.money +'</span>/'+ getcycle(item.rent_cycle) +'</div>'+
+                        '</a>'+
+                    '</li>');
+                }
+            }
+            if(list.children().length==0){
+                list.append('<li class="nodata c_99">暂无更多数据</li>');
+            }
+        }
+    })
+}
+
+function searchChange(){
+    var form = layui.form;
+    form.on('select(sel_rent_cycle)', function(data){
+        search.rent_cycle = data.value;
+    });
+    form.on('select(sel_money)', function(data){
+        search.money = data.value;
+    });
+    form.on('select(sel_status)', function(data){
+        search.status = data.value;
+    });
+
+    $("#search_form").submit(function(){
+        search.page = 1;
+        getData();
+        return false;
+    });
+    $("#search_form .reset").click(function(){
+        search = {
+            page: 1,
+            rent_cycle: "",
+            money: "",
+            status: ""
+        }
+        getData();
+    })
+}
+
+function getcycle(id){
+    var str = "";
+    switch(id){
+        case 1: str="日" ;break;
+        case 2: str="月" ;break;
+        case 3: str="年" ;break;
+    }
+    return str;
+}
+</script>
+</body>
+</html>
