@@ -33,7 +33,7 @@
 </div>
 <div class="main">
     <div class="cont mt_30">
-        <form id="search_form" class="search df layui-form">
+        <form id="search_form" class="layui-form search df">
             <select id="sel_rent_cycle" lay-filter="sel_rent_cycle">
                 <option value="">租赁周期</option>
                 <option value="1">日</option>
@@ -42,8 +42,8 @@
             </select>
             <select id="sel_money" lay-filter="sel_money">
                 <option value="">预期价位</option>
-                <option value="0-999">0-999</option>
-                <option value="1000-2000">1000-2000</option>
+                <!-- <option value="0-999">0-999</option>
+                <option value="1000-2000">1000-2000</option> -->
             </select>
             <select id="sel_status" lay-filter="sel_status">
                 <option value="">状态</option>
@@ -74,6 +74,7 @@
 
 
 <script>
+var form = layui.form;
 var search = {
     page: 1,
     rent_cycle: "",
@@ -82,6 +83,7 @@ var search = {
 }
 
 $(function(){
+    getSearch();
     getData();
     searchChange();
 })
@@ -127,8 +129,24 @@ function getData(){
     })
 }
 
+function getSearch(){
+    $.ajax({
+        type: "post",
+        url: baseurl + "/api/Data/getPriceSearch",
+        dataType: "json",
+        success(data){
+            if(data.code!==0){return}
+            var price = data.data.priceSearch;
+            var sel_money = $("#sel_money");
+            for(var i in price){
+                sel_money.append("<option value='"+i+"'>"+price[i]+"</option>");
+            }
+            form.render('select');
+        }
+    })
+}
+
 function searchChange(){
-    var form = layui.form;
     form.on('select(sel_rent_cycle)', function(data){
         search.rent_cycle = data.value;
     });

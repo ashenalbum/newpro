@@ -93,7 +93,10 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">Price：</label>
                     <div class="layui-input-block">
-                       <input name="de_money_interval" type="number" placeholder="Please enter" class="layui-input" >
+                       <!-- <input name="de_money_interval" type="number" placeholder="Please enter" class="layui-input" > -->
+                        <select name="de_money_interval">
+                            <option value="">Please enter</option>
+                        </select>
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -124,10 +127,12 @@
 
 
 <script>
+var form = layui.form;
+
 $(function(){
     // 选择日期
     layui.laydate.render({elem: '.date-input'});
-
+    getSearch();
     $("#form").submit(submit);
 })
 
@@ -151,7 +156,7 @@ function submit(){
         {b:obj.contacts_whats_app, t:"请输入WhatsApp"},
         {b:obj.settled_time, t:"请选择入驻时间"},
         {b:obj.de_rent_cycle, t:"请选择租赁周期"},
-        {b:obj.de_money_interval, t:"请输入预期价位"},
+        {b:obj.de_money_interval, t:"请选择预期价位"},
         {b:obj.de_address, t:"请输入租房位置"}
     ];
 
@@ -174,6 +179,23 @@ function submit(){
     });
 
     return false;
+}
+
+function getSearch(){
+    $.ajax({
+        type: "post",
+        url: baseurl + "/api/Data/getPriceSearch",
+        dataType: "json",
+        success(data){
+            if(data.code!==0){return}
+            var price = data.data.priceSearch;
+            var sel_money = $("select[name=de_money_interval]");
+            for(var i in price){
+                sel_money.append("<option value='"+i+"'>"+price[i]+"</option>");
+            }
+            form.render('select');
+        }
+    })
 }
 </script>
 </body>
