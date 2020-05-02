@@ -62,9 +62,9 @@ function openLogin(){
                 '<input class="email mt_20 layui-input" type="text" placeholder="email" />'+
                 '<input class="pwd mt_20 layui-input" type="password" placeholder="password" />'+
                 '<button type="submit" class="mt_20 com-btn">login</button>'+
-                '<div class="mt_30 txt_c">'+
-                    '<span id="tofindpwd" class="fs_16 c_style cur_point">Forget Password</span>'+
-                '</div>'+
+                //'<div class="mt_30 txt_c">'+
+                //    '<span id="tofindpwd" class="fs_16 c_style cur_point">Forget Password</span>'+
+                //'</div>'+
             '</form>'+
         '</div>'
     });
