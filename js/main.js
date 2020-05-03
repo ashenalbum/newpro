@@ -15,21 +15,9 @@ $(function(){
         return false;
     });
     // 客服
-    $(".hide-box .click-hide").click(function(){
-        $(this).parents(".hide-box").hide();
-    })
-    $(".open-service").click(function(){
-        if(!layer || !$("#service").length){return}
-        layer.open({
-            type: 1,
-            title: false,
-            closeBtn: 0,
-            shade: 0,
-            move: '.move',
-            area: '400px',
-            content: $("#service")
-        });
-    })
+    if(KeFu){
+        KeFu.initialize("house.kexec.top", 'index');
+    }
     // 关闭
     $(".cls-layer").click(function(){
         if(!layer){return}
