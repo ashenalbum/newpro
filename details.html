@@ -36,89 +36,52 @@
 <div class="detail-main main">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="img/home/home_img_layout1.png" alt="" /></div>
-            <div class="swiper-slide"><img src="img/home/home_img_layout2.png" alt="" /></div>
-            <div class="swiper-slide"><img src="img/home/home_img_layout3.png" alt="" /></div>
-            <div class="swiper-slide"><img src="img/home/home_img_layout4.png" alt="" /></div>
+            <!-- <div class="swiper-slide"><img src="img/home/home_img_layout1.png" alt="" /></div> -->
         </div>
     </div>
     <div class="page-cont cont mt_40 c_33 fs_18">
-        <div class="fs_24 b">98 MacDougal St</div>
+        <div class="name fs_24 b"></div>
         <div class="mt_10 df ai-c just-c-bet">
             <div>
-                <span class="fs_30 c_style">$400</span>
-                <span class="c_66">/Month</span>
+                <span class="fs_30 c_style">
+                    <span class="money_unit"></span><span class="money"></span>
+                </span>
+                <span class="c_66 rent_cycle">/Month</span>
             </div>
-            <div class="com-btn com-btn-bg">Live Chat</div>
+            <!-- <div class="com-btn com-btn-bg">Live Chat</div> -->
         </div>
-        <div class="mt_10">31 PORTLAND PLACE, LONDON, W1B 1QD</div>
+        <div class="mt_10 desc_content"></div>
         <div class="top-line mt_30 b fs_24">Apartment details</div>
         <ul class="dt-ul fs_24 df mt_40">
             <li class="df df-c ai-c">
-                <div>240.7㎡</div>
+                <div class="area"></div>
                 <div class="fs_18 c_66 mt_10">House area</div>
             </li>
             <li class="df df-c ai-c">
-                <div>2020-03-03</div>
+                <div class="stamp_time"></div>
                 <div class="fs_18 c_66 mt_10">Available time</div>
             </li>
             <li class="df df-c ai-c">
-                <div>Available now</div>
+                <div class="status"></div>
                 <div class="fs_18 c_66 mt_10">Lease status</div>
             </li>
         </ul>
         <div class="dt-table mt_30">
             <div class="tr">
                 <div class="td txt_r no_w">Lease cycle：</div>
-                <div class="td">Min stay 12 month</div>
+                <div class="td zhouqi"></div>
             </div>
             <div class="tr">
                 <div class="td txt_r no_w">Room discription：</div>
-                <div class="td">Welcome to 10 Sheridan Square., 24 hour doorman building in a prime West Village location. The Apartment: - Large Open Living Space - Newly Renovated SeperatedKitchen - King Sized Bedroom - Large Custom Windows - Large Newly Renovated Bathroom The Building: - 24 Hour Doorman - Laundry Facilities on site One of the rare 24 hour doorman buildings, in Prime West Village. Short Distance to the 1, A, C, E, B, D, F, M subways. Showing 7 days a week.</div>
+                <div class="td shuoming"></div>
             </div>
             <div class="tr">
                 <div class="td txt_r no_w">Numbering：</div>
-                <div class="td">4304 3245</div>
+                <div class="td numbering"></div>
             </div>
         </div>
     </div>
 </div>
-
-<!-- 客服 -->
-<!-- <div id="chat" class="live-chat df df-c just-c-ct hide-box">
-    <img src="img/common/chat.png" alt="" class="bg" />
-    <div class="df ai-c just-c-bet fs_12 c_ff">
-        <span>What can I do for you?</span>
-        <span class="c_ff fs_14 cur_point click-hide">&times;</span>
-    </div>
-    <button type="button" class="open-service mt_10 c_style button fs_12">Live chat</button>
-</div>
-<div id="service" class="service shadow df df-c" style="display:none;">
-    <div class="tit df ai-c just-c-bet fs_20 c_ff">
-        <span class="move f1">Connecting…</span>
-        <span class="fs_24 cur_point cls-layer">&times;</span>
-    </div>
-    <div class="dialog f1 fs_14 c_33">
-        <div class="other">
-            <img src="img/common/kefu.png" alt="" />
-            <div class="txt-box">
-                <div class="title c_66 one-hide">Live chat</div>
-                <div class="txt">what do you need help with？</div>
-            </div>
-        </div>
-        <div class="me">
-            <img src="img/common/yonghu.png" alt="" />
-            <div class="txt-box">
-                <div class="title c_66 one-hide">Live chat</div>
-                <div class="txt">what do you need help with？</div>
-            </div>
-        </div>
-    </div>
-    <div class="iptmsg">
-        <textarea placeholder="Please enter"></textarea>
-        <button class="button com-btn">sand</button>
-    </div>
-</div> -->
 
 <script src="js/jquery.min.js"></script>
 <script src="js/layui/layui.all.js"></script>
@@ -128,14 +91,76 @@
 
 <script src="js/swiper.min.js"></script>
 <script>
+var id = getSearch("id");
+
 $(function(){
+    getData();
+})
+function getSearch(key){
+    var search = window.location.search;
+    if(!search){return "";}
+    var searchArr = search.slice(1).split("&");
+    for(var i in searchArr){
+        var item = searchArr[i];
+        if(key===item.split("=")[0]){return item.split("=")[1] || ""}
+    }
+    return "";
+}
+function getData(){
+    $.ajax({
+        type: "post",
+        url: baseurl + "/api/House/getHouseDetail",
+        data: {id: id},
+        dataType: "json",
+        success: function(data){
+            if(data.code!==0){layer.msg(data.msg); return}
+            fillData(data.data);
+        }
+    })
+}
+
+function fillData(data){
+    if(!data){return}
+    // 头图
+    var imgs = data.images.split(",");
+    if(imgs.length==0){$(".swiper-container").hide();}
+    else if(imgs.length<=2){$(".swiper-container").width(imgs.length*600);}
+    var imgDom = $(".swiper-wrapper");
+    for(var i in imgs){
+        imgDom.append('<div class="swiper-slide"><img src="'+imgs[i]+'" alt="" /></div>');
+    }
     var swiper = new Swiper('.swiper-container', {
         slidesPerView: 'auto',
         freeMode: true,
-        // resistanceRatio: 0,
         pagination: {el: '.swiper-pagination'},
     });
-})
+
+    var cont = $(".page-cont");
+    cont.find(".name").html(data.name);
+    cont.find(".money_unit").html(data.money_unit.toUpperCase()=="CNY"?"￥":"$");
+    cont.find(".money").html(data.money);
+    cont.find(".rent_cycle").html('/ '+getcycle(data.rent_cycle));
+    cont.find(".desc_content").html(data.desc_content);
+    cont.find(".area").html(data.area+"㎡");
+    cont.find(".stamp_time").html(data.stamp_time);
+    cont.find(".status").html(data.status==1?"空置":"已出租");
+    cont.find(".zhouqi").html(getcycle(data.rent_cycle));
+    cont.find(".shuoming").html(data.env_desc_content);
+    cont.find(".numbering").html(data.number);
+
+    // cont.find("").html(data);
+}
+
+function getcycle(id){
+    var str = "";
+    id = Number(id);
+    switch(id){
+        case 1: str="日" ;break;
+        case 2: str="月" ;break;
+        case 3: str="年" ;break;
+    }
+    return str;
+}
 </script>
 </body>
 </html>

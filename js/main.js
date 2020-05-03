@@ -17,6 +17,7 @@ $(function(){
     // 客服
     if(KeFu){
         KeFu.initialize("house.kexec.top", 'index');
+        localStorage.removeItem("kefu_button_coordinate");
     }
     // 关闭
     $(".cls-layer").click(function(){
