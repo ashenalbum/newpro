@@ -75,11 +75,11 @@ a{color:inherit;}
 
 #header{box-sizing:border-box; position:fixed; top:0; width:100%; height:114px; padding:0 60px; background:#ffffff; z-index:99;}
 #header .icon{width:188px; height:80px;}
-#header .nav-pills>li{position:relative;}
-#header .nav-pills>li>a{display:block; position:relative; padding:10px 15px;}
-#header .nav-pills>li.active>a,
-#header .nav-pills>li.active>a:focus,
-#header .nav-pills>li.active>a:hover{color:#14CC8F;}
+#header .nav>li{position:relative;}
+#header .nav>li>a{display:block; position:relative; padding:10px 15px;}
+#header .nav>li.active>a,
+#header .nav>li.active>a:focus,
+#header .nav>li.active>a:hover{color:#14CC8F;}
 #header .userinfo{display:none;}
 #header .userinfo a{color:#666666;}
 
@@ -133,6 +133,7 @@ a{color:inherit;}
 .block-3 .bg-img{position:absolute; width:100%; height:100%; top:0; left:0;}
 .block-3>*{position:relative;}
 .block-3 .carousel{width:940px; height:240px;}
+.block-3 .carousel .item{overflow-y:auto;}
 .block-3 .controls{height:130px;}
 .block-3 .button{box-sizing:border-box; padding:0 20px; height:50px; border:1px solid #ffffff; border-radius:26px; background-color:transparent; color:#ffffff;}
 

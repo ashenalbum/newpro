@@ -4,16 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="js/layui/css/layui.css" >
     <link rel="stylesheet" href="css/swiper.min.css" >
     <link rel="stylesheet" href="css/common.css">
     <link href="http://house.kexec.top/assets/addons/kefu/css/kefu_default.css" rel="stylesheet">
-    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div id="header" class="df ai-c just-c-bet shadow">
     <img src="img/common/head.png" class="icon" alt="">
-    <ul class="nav-pills df ai-c fs_18">
+    <ul class="nav df ai-c fs_18">
         <li role="presentation" class="dropdown">
             <a href="javascript:;" class="dropdown-toggle">
                 <span>English(EN)</span>
@@ -69,10 +69,10 @@
         <div class="cont df ai-c just-c-bet c_ff fs_18">
 
             <div class="carousel slide swiper-container">
-                <div id="msgls" class="carousel-inner swiper-wrapper">
+                <div id="msgls" class="swiper-wrapper">
                     <!-- <div class="item swiper-slide">
                         <div class="fs_36">Sam Boone</div>
-                        <div class="mt_20 lh_36 fore-hide ws-pl">A consultant teacher called me directly to help me recommend listings. The whole process still feels quite reliable, mainly because I found a good house! I hope that other friends who are looking for a house can find a good house as soon as possible!</div>
+                        <div class="mt_20 lh_36 ws-pl">A consultant teacher called me directly to help me recommend listings. The whole process still feels quite reliable, mainly because I found a good house! I hope that other friends who are looking for a house can find a good house as soon as possible!</div>
                     </div> -->
                 </div>
             </div>
@@ -81,7 +81,7 @@
                 <img src="img/common/right.png" alt="" class="bt next-btn cur_point" />
             </div>
         </div>
-        <button type="button" class="button open-message">Message</button>
+        <button type="button" class="button open-message mt_20">Message</button>
     </div>
 </div>
 <div id="footer">
@@ -186,7 +186,7 @@ function getMsg(){
                 item.msg_content = item.msg_content.replace(/&gt;/g,">");
                 list.append('<div class="item swiper-slide">'+
                     '<div class="fs_36">'+item.email+'</div>'+
-                    '<div class="mt_20 lh_36 fore-hide ws-pl">'+item.msg_content+'</div>'+
+                    '<div class="mt_20 lh_36 ws-pl">'+item.msg_content+'</div>'+
                 '</div>');
             }
             swiper.update();
