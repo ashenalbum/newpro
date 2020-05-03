@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="js/layui/css/layui.css" >
     <link rel="stylesheet" href="css/swiper.min.css" >
     <link rel="stylesheet" href="css/common.css">
+    <link href="http://house.kexec.top/assets/addons/kefu/css/kefu_default.css" rel="stylesheet">
 </head>
 <body>
 <div id="header" class="df ai-c just-c-bet shadow">
@@ -70,7 +71,7 @@
                 <div id="msgls" class="carousel-inner swiper-wrapper">
                     <!-- <div class="item swiper-slide">
                         <div class="fs_36">Sam Boone</div>
-                        <div class="mt_20 lh_36 fore-hide">A consultant teacher called me directly to help me recommend listings. The whole process still feels quite reliable, mainly because I found a good house! I hope that other friends who are looking for a house can find a good house as soon as possible!</div>
+                        <div class="mt_20 lh_36 fore-hide ws-pl">A consultant teacher called me directly to help me recommend listings. The whole process still feels quite reliable, mainly because I found a good house! I hope that other friends who are looking for a house can find a good house as soon as possible!</div>
                     </div> -->
                 </div>
             </div>
@@ -156,7 +157,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/layui/layui.all.js"></script>
 <script src="js/main.js"></script>
-
+<script src="js/kefu.js"></script>
 <script src="js/swiper.min.js"></script>
 <script>
 var swiper = null;
@@ -179,9 +180,11 @@ function getMsg(){
             var msgs = data.data;
             for(var i in msgs){
                 var item = msgs[i];
+                item.msg_content = item.msg_content.replace(/&lt;/g,"<");
+                item.msg_content = item.msg_content.replace(/&gt;/g,">");
                 list.append('<div class="item swiper-slide">'+
                     '<div class="fs_36">'+item.email+'</div>'+
-                    '<div class="mt_20 lh_36 fore-hide">'+item.msg_content+'</div>'+
+                    '<div class="mt_20 lh_36 fore-hide ws-pl">'+item.msg_content+'</div>'+
                 '</div>');
             }
             swiper.update();
@@ -231,7 +234,11 @@ function init(){
             }
         })
         return false;
-    })
+    });
+    
+    KeFu.initialize("house.kexec.top", 'index', function () {
+        KeFu.toggle_window('show');// 打开窗口
+    });
 }
 
 </script>
