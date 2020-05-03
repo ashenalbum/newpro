@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/swiper.min.css" >
     <link rel="stylesheet" href="css/common.css">
     <link href="http://house.kexec.top/assets/addons/kefu/css/kefu_default.css" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div id="header" class="df ai-c just-c-bet shadow">
@@ -156,9 +157,10 @@
 
 <script src="js/jquery.min.js"></script>
 <script src="js/layui/layui.all.js"></script>
-<script src="js/main.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/kefu.js"></script>
 <script src="js/swiper.min.js"></script>
+<script src="js/main.js"></script>
 <script>
 var swiper = null;
 var msgLayerIndex = null;
@@ -235,7 +237,7 @@ function init(){
         })
         return false;
     });
-    
+
     KeFu.initialize("house.kexec.top", 'index', function () {
         KeFu.toggle_window('show');// 打开窗口
     });
