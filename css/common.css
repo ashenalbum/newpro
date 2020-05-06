@@ -4,6 +4,7 @@ input,textarea{box-sizing:border-box;}
 textarea:focus{outline:none;}
 button:focus{outline:none;}
 a{color:inherit;}
+a:focus{color:inherit!important;}
 *:focus{outline:none;}
 
 .lang{display:none;}
