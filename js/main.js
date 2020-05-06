@@ -41,7 +41,7 @@ $(function(){
 // 切换语言
 function changeLang(){
     var lang = localStorage.getItem("lang");
-    if(!lang){lang = "cn"}
+    if(!lang){lang = "en"}
     if(lang=="cn"){
         $(".lang-cn").show();
         $(".lang-en").hide();
@@ -242,7 +242,10 @@ function openRegister(){
                 //     '<span class="fs_16 c_style cur_point">Forget Password</span>'+
                 // '</div>'+
             '</form>'+
-        '</div>'
+        '</div>',
+        success: function(){
+            changeLang();
+        }
     })
     $("#tologin").click(function(){
         layer.closeAll();
