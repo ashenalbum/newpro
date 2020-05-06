@@ -46,7 +46,7 @@ function changeLang(){
         $(".lang-cn").show();
         $(".lang-en").hide();
         $("#header .sellang").html("简体中文(CN)");
-    } else {
+    } else if(lang=="en") {
         $(".lang-en").show();
         $(".lang-cn").hide();
         $("#header .sellang").html("English(EN)");
@@ -55,6 +55,13 @@ function changeLang(){
         var ts = $(this);
         ts.attr("placeholder",ts.attr(lang+"-ph"));
     });
+
+    var htmlLang = "";
+    switch(lang){
+        case "en":htmlLang="en";break;
+        case "cn":htmlLang="zh";break;
+    }
+    document.documentElement.setAttribute("lang",htmlLang);
 }
 // 是否登录
 function testLogin(){
