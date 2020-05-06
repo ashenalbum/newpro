@@ -6,6 +6,8 @@ button:focus{outline:none;}
 a{color:inherit;}
 *:focus{outline:none;}
 
+.lang{display:none;}
+.lang:first-child{display:inline;}
 .df{display:flex; flex-direction:row;}
 .df-r{flex-direction: row;}
 .df-c{flex-direction: column;}

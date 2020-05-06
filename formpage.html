@@ -16,7 +16,7 @@
     <ul class="nav df ai-c fs_18">
         <li role="presentation" class="dropdown">
             <a href="javascript:;" class="dropdown-toggle">
-                <span>English(EN)</span>
+                <span class="sellang">English(EN)</span>
                 <span class="caret"></span>
             </a>
             <ul class="change-lang dropdown-menu">
@@ -24,68 +24,68 @@
                 <li><a class="item" data-id="cn" href="javascript:;">简体中文(CN)</a></li>
             </ul>
         </li>
-        <li role="presentation"><a href="index.html">Home</a></li>
-        <li role="presentation"><a href="list.html">Listing view</a></li>
-        <li class="active" role="presentation"><a href="formpage.html">Housing release</a></li>
-        <li role="presentation"><a href="service.html">Service</a></li>
-        <li role="presentation"><a href="contactus.html">Contact us</a></li>
-        <li role="presentation" class="showlogin"><a class="menu-login" href="javascript:;">Login/registe</a></li>
+        <li role="presentation"><a href="index.html"><span class="lang lang-cn">首页</span><span class="lang lang-en">Home</span></a></li>
+        <li role="presentation"><a href="list.html"><span class="lang lang-cn">房源查看</span><span class="lang lang-en">Listing view</span></a></li>
+        <li class="active" role="presentation"><a class="islogin" href="formpage.html"><span class="lang lang-cn">发布需求</span><span class="lang lang-en">Housing release</span></a></li>
+        <li role="presentation"><a href="service.html"><span class="lang lang-cn">服务介绍</span><span class="lang lang-en">Service</span></a></li>
+        <li role="presentation"><a href="contactus.html"><span class="lang lang-cn">联系我们</span><span class="lang lang-en">Contact us</span></a></li>
+        <li role="presentation" class="showlogin"><a class="menu-login" href="javascript:;"><span class="lang lang-cn">登录/注册</span><span class="lang lang-en">Login/registe</span></a></li>
         <li role="presentation" class="userinfo"><a href="javascript:;"></a></li>
     </ul>
 </div>
 <div class="main form-main">
     <div class="top-bg df ai-c just-c-ct">
         <img src="img/form/top.png" class="img" alt="" />
-        <span class="fs_48 c_33">Housing Release</span>
+        <span class="fs_48 c_33"><span class="lang lang-cn">发布需求</span><span class="lang lang-en">Housing Release</span></span>
     </div>
     <div class="cont mt_50 c_33">
         <form id="form" class="layui-form">
-            <div class="fs_24 b">Personal details</div>
+            <div class="fs_24 b"><span class="lang lang-cn">基本信息</span><span class="lang lang-en">Personal details</span></div>
             <div class="mt_30">
                 <div class="layui-form-item">
-                    <label class="layui-form-label">Name：</label>
+                    <label class="layui-form-label"><span class="lang lang-cn">联系人称呼：</span><span class="lang lang-en">Name：</span></label>
                     <div class="layui-input-block">
-                        <input name="contacts_name" type="text" placeholder="Please enter" class="layui-input" >
+                        <input name="contacts_name" type="text" placeholder="Please enter" class="layui-input" en-ph="Please enter" cn-ph="请输入联系人">
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label">TEL：</label>
+                    <label class="layui-form-label"><span class="lang lang-cn">电话：</span><span class="lang lang-en">TEL：</span></label>
                     <div class="layui-input-block">
-                        <input name="contacts_tel" type="text" placeholder="Please enter" class="layui-input" >
+                        <input name="contacts_tel" type="text" placeholder="Please enter" class="layui-input" en-ph="Please enter" cn-ph="请输入电话" >
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">E-mail：</label>            
                     <div class="layui-input-block">
-                        <input name="contacts_mail" type="text" placeholder="Please enter" class="layui-input" >
+                        <input name="contacts_mail" type="text" placeholder="Please enter" class="layui-input" en-ph="Please enter" cn-ph="请输入E-mail" >
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">Facebook：</label>
                     <div class="layui-input-block">
-                        <input name="contacts_facebook" type="text" placeholder="Please enter" class="layui-input" >
+                        <input name="contacts_facebook" type="text" placeholder="Please enter" class="layui-input" en-ph="Please enter" cn-ph="请输入Facebook" >
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">WhatsApp：</label>
                     <div class="layui-input-block">
-                        <input name="contacts_whats_app" type="text" placeholder="Please enter" class="layui-input" >
+                        <input name="contacts_whats_app" type="text" placeholder="Please enter" class="layui-input" en-ph="Please enter" cn-ph="请输入WhatsApp" >
                     </div>
                 </div>
             </div>
-            <div class="fs_24 b mt_60">Housing Release</div>
+            <div class="fs_24 b mt_60"><span class="lang lang-cn">需求发布</span><span class="lang lang-en">Housing Release</span></div>
             <div class="mt_30">
                 <div class="layui-form-item">
-                    <label class="layui-form-label">Check in time：</label>
+                    <label class="layui-form-label"><span class="lang lang-cn">入住时间：</span><span class="lang lang-en">Check in time：</span></label>
                     <div class="layui-input-block">
-                        <input name="settled_time" type="text" readonly placeholder="Please enter" class="date-input layui-input" >
+                        <input name="settled_time" type="text" readonly placeholder="Please enter" class="date-input layui-input" en-ph="Please enter" cn-ph="请输入入住时间" >
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label">Lease cycle：</label>
+                    <label class="layui-form-label"><span class="lang lang-cn">租赁周期：</span><span class="lang lang-en">Lease cycle：</span></label>
                     <div class="layui-input-block">
                         <select name="de_rent_cycle">
-                            <option value="">Please enter</option>
+                            <option value="">请选择租赁周期</option>
                             <option value="1">日</option>
                             <option value="2">月</option>
                             <option value="3">年</option>
@@ -93,29 +93,29 @@
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label">Price：</label>
+                    <label class="layui-form-label"><span class="lang lang-cn">预期价位：</span><span class="lang lang-en">Price：</span></label>
                     <div class="layui-input-block">
                        <!-- <input name="de_money_interval" type="number" placeholder="Please enter" class="layui-input" > -->
                         <select name="de_money_interval">
-                            <option value="">Please enter</option>
+                            <option value="">请选择价位</option>
                         </select>
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label">Address：</label>
+                    <label class="layui-form-label"><span class="lang lang-cn">租赁位置：</span><span class="lang lang-en">Address：</span></label>
                     <div class="layui-input-block">
-                       <input name="de_address" type="text" placeholder="Please enter" class="layui-input" >
+                       <input name="de_address" type="text" placeholder="Please enter" class="layui-input" en-ph="Please enter" cn-ph="请输入租赁位置" >
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label">Other：</label>
+                    <label class="layui-form-label"><span class="lang lang-cn">其他：</span><span class="lang lang-en">Other：</span></label>
                     <div class="layui-input-block">
-                        <input name="de_remarks" type="text" placeholder="Please enter" class="layui-input" >
+                        <input name="de_remarks" type="text" placeholder="Please enter" class="layui-input" en-ph="Please enter" cn-ph="其他" >
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <div class="layui-input-block mt_40">
-                        <button class="layui-btn layui-btn-radius">Release</button>
+                        <button class="layui-btn layui-btn-radius"><span class="lang lang-cn">提交</span><span class="lang lang-en">Release</span></button>
                     </div>
                 </div>
             </div>
@@ -141,8 +141,11 @@ $(function(){
 })
 
 function submit(){
-    var token = localStorage.getItem("token");
-    if(!token){layer.msg("请先登录"); return false;}
+    if(!testLogin()){
+        openLogin();
+        layer.msg("请先登录",{time:800});
+        return false;
+    }
     
     var ts = $(this);
     var datas = ts.serializeArray();
@@ -170,6 +173,7 @@ function submit(){
         }
     }
 
+    var token = localStorage.getItem("token");
     $.ajax({
         type: "post",
         url: baseurl + "/api/House/releaseDemand",
