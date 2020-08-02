@@ -1,4 +1,6 @@
 var baseurl = "http://house.kexec.top";
+var layuiForm = null;
+layui.use('form', function(){layuiForm = layui.form;});
 
 $(function(){
     // 菜单
@@ -55,6 +57,12 @@ function changeLang(){
         var ts = $(this);
         ts.attr("placeholder",ts.attr(lang+"-ph"));
     });
+    $("["+lang+"-sel]").each(function(){
+        var ts = $(this);
+        ts.html(ts.attr(lang+"-sel"));
+    });
+    
+    layuiForm.render('select');
 
     var htmlLang = "";
     switch(lang){

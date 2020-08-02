@@ -25,8 +25,8 @@
             </ul>
         </li>
         <li role="presentation"><a href="index.html"><span class="lang lang-cn">首页</span><span class="lang lang-en">Home</span></a></li>
-        <li class="active" role="presentation"><a href="list.html"><span class="lang lang-cn">房源查看</span><span class="lang lang-en">Listing view</span></a></li>
-        <li role="presentation"><a class="islogin" href="formpage.html"><span class="lang lang-cn">发布需求</span><span class="lang lang-en">Housing release</span></a></li>
+        <li class="active" role="presentation"><a href="list.html"><span class="lang lang-cn">房源查看</span><span class="lang lang-en">Property Search</span></a></li>
+        <li role="presentation"><a class="islogin" href="formpage.html"><span class="lang lang-cn">发布需求</span><span class="lang lang-en">Property Needed</span></a></li>
         <li role="presentation"><a href="service.html"><span class="lang lang-cn">服务介绍</span><span class="lang lang-en">Service</span></a></li>
         <li role="presentation"><a href="contactus.html"><span class="lang lang-cn">联系我们</span><span class="lang lang-en">Contact us</span></a></li>
         <li role="presentation" class="showlogin"><a class="menu-login" href="javascript:;"><span class="lang lang-cn">登录/注册</span><span class="lang lang-en">Login/registe</span></a></li>
@@ -37,23 +37,23 @@
     <div class="cont mt_30">
         <form id="search_form" class="layui-form search df">
             <select id="sel_rent_cycle" lay-filter="sel_rent_cycle">
-                <option value="">租赁周期</option>
-                <option value="1">日</option>
-                <option value="2">月</option>
-                <option value="3">年</option>
+                <option value="" en-sel="tenancy agreement term" cn-sel="租赁周期">租赁周期</option>
+                <option value="1" en-sel="day" cn-sel="日">日</option>
+                <option value="2" en-sel="month" cn-sel="月">月</option>
+                <option value="3" en-sel="year" cn-sel="年">年</option>
             </select>
             <select id="sel_money" lay-filter="sel_money">
-                <option value="">预期价位</option>
+                <option value="" en-sel="price range" cn-sel="预期价位">预期价位</option>
                 <!-- <option value="0-999">0-999</option>
                 <option value="1000-2000">1000-2000</option> -->
             </select>
             <select id="sel_status" lay-filter="sel_status">
-                <option value="">状态</option>
-                <option value="1">空置</option>
-                <option value="2">已出租</option>
+                <option value="" en-sel="status" cn-sel="状态">状态</option>
+                <option value="1" en-sel="vacant" cn-sel="空置">空置</option>
+                <option value="2" en-sel="leased" cn-sel="已出租">已出租</option>
             </select>
-            <button type="submit" class="layui-btn btn-color">查询</button>
-            <button type="reset" class="layui-btn layui-btn-primary reset" >清空</button>
+            <button type="submit" class="layui-btn btn-color" en-sel="search" cn-sel="查询">查询</button>
+            <button type="reset" class="layui-btn layui-btn-primary reset" en-sel="clear" cn-sel="清空">清空</button>
         </form>
         <ul id="list" class="list mt_20 df df-r df-w-w c_33 fs_18">
             <!-- <li class="item">

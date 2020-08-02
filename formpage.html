@@ -25,9 +25,9 @@
             </ul>
         </li>
         <li role="presentation"><a href="index.html"><span class="lang lang-cn">首页</span><span class="lang lang-en">Home</span></a></li>
-        <li role="presentation"><a href="list.html"><span class="lang lang-cn">房源查看</span><span class="lang lang-en">Listing view</span></a></li>
-        <li class="active" role="presentation"><a class="islogin" href="formpage.html"><span class="lang lang-cn">发布需求</span><span class="lang lang-en">Housing release</span></a></li>
-        <li role="presentation"><a href="service.html"><span class="lang lang-cn">服务介绍</span><span class="lang lang-en">Service</span></a></li>
+        <li role="presentation"><a href="list.html"><span class="lang lang-cn">房源查看</span><span class="lang lang-en">Property Search</span></a></li>
+        <li class="active" role="presentation"><a class="islogin" href="formpage.html"><span class="lang lang-cn">发布需求</span><span class="lang lang-en">Property Needed</span></a></li>
+        <li role="presentation"><a href="service.html"><span class="lang lang-cn">服务介绍</span><span class="lang lang-en">Our Service</span></a></li>
         <li role="presentation"><a href="contactus.html"><span class="lang lang-cn">联系我们</span><span class="lang lang-en">Contact us</span></a></li>
         <li role="presentation" class="showlogin"><a class="menu-login" href="javascript:;"><span class="lang lang-cn">登录/注册</span><span class="lang lang-en">Login/registe</span></a></li>
         <li role="presentation" class="userinfo"><a href="javascript:;"></a></li>
@@ -36,7 +36,7 @@
 <div class="main form-main">
     <div class="top-bg df ai-c just-c-ct">
         <img src="img/form/top.png" class="img" alt="" />
-        <span class="fs_48 c_33"><span class="lang lang-cn">发布需求</span><span class="lang lang-en">Housing Release</span></span>
+        <span class="fs_48 c_33"><span class="lang lang-cn">发布需求</span><span class="lang lang-en">Property Needed</span></span>
     </div>
     <div class="cont mt_50 c_33">
         <form id="form" class="layui-form">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label"><span class="lang lang-cn">电话：</span><span class="lang lang-en">TEL：</span></label>
+                    <label class="layui-form-label"><span class="lang lang-cn">电话：</span><span class="lang lang-en">Tel：</span></label>
                     <div class="layui-input-block">
                         <input name="contacts_tel" type="text" placeholder="Please enter" class="layui-input" en-ph="Please enter" cn-ph="请输入电话" >
                     </div>
@@ -73,36 +73,36 @@
                     </div>
                 </div>
             </div>
-            <div class="fs_24 b mt_60"><span class="lang lang-cn">需求发布</span><span class="lang lang-en">Housing Release</span></div>
+            <div class="fs_24 b mt_60"><span class="lang lang-cn">需求发布</span><span class="lang lang-en">Property Needed</span></div>
             <div class="mt_30">
                 <div class="layui-form-item">
-                    <label class="layui-form-label"><span class="lang lang-cn">入住时间：</span><span class="lang lang-en">Check in time：</span></label>
+                    <label class="layui-form-label"><span class="lang lang-cn">入住时间：</span><span class="lang lang-en">Move in date：</span></label>
                     <div class="layui-input-block">
                         <input name="settled_time" type="text" readonly placeholder="Please enter" class="date-input layui-input" en-ph="Please enter" cn-ph="请输入入住时间" >
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label"><span class="lang lang-cn">租赁周期：</span><span class="lang lang-en">Lease cycle：</span></label>
+                    <label class="layui-form-label"><span class="lang lang-cn">租赁周期：</span><span class="lang lang-en">Tenancy agreement term：</span></label>
                     <div class="layui-input-block">
                         <select name="de_rent_cycle">
-                            <option value="">请选择租赁周期</option>
-                            <option value="1">日</option>
-                            <option value="2">月</option>
-                            <option value="3">年</option>
+                            <option value="" en-sel="Please enter" cn-sel="请选择租赁周期">请选择租赁周期</option>
+                            <option value="1" en-sel="day" cn-sel="日">日</option>
+                            <option value="2" en-sel="month" cn-sel="月">月</option>
+                            <option value="3" en-sel="year" cn-sel="年">年</option>
                         </select>
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label"><span class="lang lang-cn">预期价位：</span><span class="lang lang-en">Price：</span></label>
+                    <label class="layui-form-label"><span class="lang lang-cn">预期价位：</span><span class="lang lang-en">Price Range：</span></label>
                     <div class="layui-input-block">
                        <!-- <input name="de_money_interval" type="number" placeholder="Please enter" class="layui-input" > -->
                         <select name="de_money_interval">
-                            <option value="">请选择价位</option>
+                            <option value="" en-sel="Please enter" cn-sel="请选择价位">请选择价位</option>
                         </select>
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label"><span class="lang lang-cn">租赁位置：</span><span class="lang lang-en">Address：</span></label>
+                    <label class="layui-form-label"><span class="lang lang-cn">租赁位置：</span><span class="lang lang-en">Property area：</span></label>
                     <div class="layui-input-block">
                        <input name="de_address" type="text" placeholder="Please enter" class="layui-input" en-ph="Please enter" cn-ph="请输入租赁位置" >
                     </div>

@@ -31,6 +31,7 @@ a:focus{color:inherit;}
 .fw_1{font-weight:100;}
 .txt_r{text-align:right;}
 .txt_c{text-align:center;}
+.t-indent{text-indent:2em;}
 .no_w{white-space:nowrap;}
 .ws-pl{white-space:pre-line;}
 
@@ -42,6 +43,7 @@ a:focus{color:inherit;}
 .mt_60{margin-top:60px;}
 .mt_80{margin-top:80px;}
 .mt_90{margin-top:90px;}
+.ml-20{margin-left:20px;}
 
 .c_style{color:#14CC8F;}
 .c_33{color:#333333;}
@@ -61,6 +63,7 @@ a:focus{color:inherit;}
 .fs_48{font-size:48px;}
 .fs_70{font-size:70px;}
 .lh_36{line-height:36px;}
+.lh-2{line-height:2;}
 
 .com-btn{background:#14CC8F; height:36px; padding:0 16px; border:none; border-radius:4px; color:#ffffff;}
 .com-btn.com-btn-bg{padding:0 30px; height:48px; line-height:48px; border-radius:24px;}
@@ -90,7 +93,8 @@ a:focus{color:inherit;}
 #banner .img{display:block; width:100%; height:auto;}
 
 #footer{padding:60px 0; background:#ffffff;}
-#footer .txt{width:470px;}
+#footer .txt{width:640px;}
+#footer .txt li{text-indent:2em;}
 #footer .icon{width:220px; height:90px;}
 #footer a{color:inherit;}
 
@@ -178,10 +182,10 @@ a:focus{color:inherit;}
 
 /* other */
 .bot-table{width:100%;}
-.bot-table td{padding:10px 30px; border-right:1px solid #d0d0d0;}
+.bot-table td{padding:10px 30px; border-right:1px solid #d0d0d0; }
 .bot-table td:last-child{border:none;}
 .bot-table .thead td{padding:20px 30px; border-top:1px solid #d0d0d0; border-bottom:1px solid #d0d0d0; font-size:16px;}
-.contactus-table td{width:190px; padding:24px 5px;}
+.contactus-table td{min-width:190px; padding:24px 5px; vertical-align:text-top;}
 
 /* login */
 #loginbox{padding:40px; background:#ffffff;}
