@@ -26,7 +26,7 @@
         </li>
         <li role="presentation"><a href="index.html"><span class="lang lang-cn">首页</span><span class="lang lang-en">Home</span></a></li>
         <li role="presentation"><a href="list.html"><span class="lang lang-cn">房源查看</span><span class="lang lang-en">Property Search</span></a></li>
-        <li class="active" role="presentation"><a class="islogin" href="formpage.html"><span class="lang lang-cn">发布需求</span><span class="lang lang-en">Property Needed</span></a></li>
+        <li class="active" role="presentation"><a class="needlogin" href="formpage.html"><span class="lang lang-cn">发布需求</span><span class="lang lang-en">Property Needed</span></a></li>
         <li role="presentation"><a href="service.html"><span class="lang lang-cn">服务介绍</span><span class="lang lang-en">Our Service</span></a></li>
         <li role="presentation"><a href="contactus.html"><span class="lang lang-cn">联系我们</span><span class="lang lang-en">Contact us</span></a></li>
         <li role="presentation" class="showlogin"><a class="menu-login" href="javascript:;"><span class="lang lang-cn">登录/注册</span><span class="lang lang-en">Login/registe</span></a></li>
@@ -143,7 +143,7 @@ $(function(){
 function submit(){
     if(!testLogin()){
         openLogin();
-        layer.msg("请先登录",{time:800});
+        layer.msg(localStorage.getItem("lang")=="en"?"please log in":"请先登录",{time:800});
         return false;
     }
     

@@ -26,7 +26,7 @@
         </li>
         <li role="presentation"><a href="index.html"><span class="lang lang-cn">首页</span><span class="lang lang-en">Home</span></a></li>
         <li class="active" role="presentation"><a href="list.html"><span class="lang lang-cn">房源查看</span><span class="lang lang-en">Property Search</span></a></li>
-        <li role="presentation"><a class="islogin" href="formpage.html"><span class="lang lang-cn">发布需求</span><span class="lang lang-en">Property Needed</span></a></li>
+        <li role="presentation"><a class="needlogin" href="formpage.html"><span class="lang lang-cn">发布需求</span><span class="lang lang-en">Property Needed</span></a></li>
         <li role="presentation"><a href="service.html"><span class="lang lang-cn">服务介绍</span><span class="lang lang-en">Our Service</span></a></li>
         <li role="presentation"><a href="contactus.html"><span class="lang lang-cn">联系我们</span><span class="lang lang-en">Contact us</span></a></li>
         <li role="presentation" class="showlogin"><a class="menu-login" href="javascript:;"><span class="lang lang-cn">登录/注册</span><span class="lang lang-en">Login/registe</span></a></li>
@@ -51,6 +51,7 @@
             <!-- <div class="com-btn com-btn-bg">Live Chat</div> -->
         </div>
         <div class="mt_10 address"></div>
+        <div id="googleMap" class="mt_10 map"></div>
         <div class="top-line mt_30 b fs_24"><span class="lang lang-cn">房源基本信息</span><span class="lang lang-en">Property details</span></div>
         <ul class="dt-ul fs_24 df mt_40">
             <li class="df df-c ai-c">
@@ -92,13 +93,18 @@
 <script src="js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script src="js/kefu.js"></script>
 <script src="js/main.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhYyje8cPI--S4Gc4YGW976-ASS8f7WYU&sensor=false&callback=initialize"></script>
 
 <script src="js/swiper.min.js"></script>
 <script>
 var id = getSearch("id");
+var map = null;
+var latitude = null;
+var longitude = null;
 
 $(function(){
     getData();
+    google.maps.event.addDomListener(window, 'load', initialize);
 })
 function getSearch(key){
     var search = window.location.search;
@@ -118,11 +124,26 @@ function getData(){
         dataType: "json",
         success: function(data){
             if(data.code!==0){layer.msg(data.msg); return}
+            latitude = data.latitude || 35;
+            longitude = data.longitude || 111;
+            var marker = new google.maps.Marker({
+                map: map,
+                position: new google.maps.LatLng(latitude, longitude)
+            });
+            map.panTo(marker.getPosition());
             fillData(data.data);
         }
     })
 }
-
+function initialize(){
+    var mapProp = {
+        center:new google.maps.LatLng(latitude, longitude),
+        zoom:16,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+    };
+    map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+}
+ 
 function fillData(data){
     if(!data){return}
     // 头图

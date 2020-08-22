@@ -4,10 +4,10 @@ layui.use('form', function(){layuiForm = layui.form;});
 
 $(function(){
     // 菜单
-    $("#header .islogin").click(function(){
+    $(".needlogin").click(function(){
         if(!testLogin()){
             openLogin();
-            layer.msg("请先登录",{time: 1000});
+            layer.msg(localStorage.getItem("lang")=="en"?"please log in":"请先登录",{time: 1000});
             return false;
         }
     })

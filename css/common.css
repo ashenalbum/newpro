@@ -164,6 +164,7 @@ a:focus{color:inherit;}
 .page-cont .dt-table{display:table;}
 .page-cont .dt-table .tr{display:table-row;}
 .page-cont .dt-table .td{display:table-cell;padding:15px 5px;}
+.map{width:1200px; height:500px;}
 
 /* formpage */
 .form-main{padding-bottom:60px;}
