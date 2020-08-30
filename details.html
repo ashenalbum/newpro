@@ -51,7 +51,7 @@
             <!-- <div class="com-btn com-btn-bg">Live Chat</div> -->
         </div>
         <div class="mt_10 address"></div>
-        <div id="googleMap" class="mt_10 map"></div>
+        <div id="googleMap" class="mt_10 map" style="display:none;"></div>
         <div class="top-line mt_30 b fs_24"><span class="lang lang-cn">房源基本信息</span><span class="lang lang-en">Property details</span></div>
         <ul class="dt-ul fs_24 df mt_40">
             <li class="df df-c ai-c">
@@ -141,7 +141,8 @@ function initialize(){
         zoom:16,
         mapTypeId:google.maps.MapTypeId.ROADMAP
     };
-    map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+    $("#googleMap").show();
+    map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
  
 function fillData(data){
